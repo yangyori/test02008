@@ -1,0 +1,75 @@
+ 
+#delivery_head{
+    width: 100%;
+    float: left;
+    margin: 20px 0px 20px 0px;
+}
+
+#delivery_title{
+    float: left;
+    font-size: 25px;
+}
+
+#btnaddress{
+    width: 100%;
+}
+
+#sbtn{
+    width: 98%;
+    color: white;
+    background-color: #5F0080;
+    font-weight: bold;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+}
+
+#delivery_contents{
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+
+#delivery_contents span{
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#delivery_contents input{
+    padding-left: 3px;
+    height: 40px;
+    width: 97%;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+#delivery_bottom{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#delivery_bottom input{
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+#dbtn1{
+    border: 1px solid gainsboro;
+    background-color: white;
+    cursor: pointer;
+}
+
+#dbtn2{
+    background-color: #5F0080;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

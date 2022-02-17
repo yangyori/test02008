@@ -1,0 +1,38 @@
+#side_menu {
+    margin-top: 20px;
+}
+
+#side_list {
+    border: 1px solid #f2f2f2;
+    width: 195px;
+}
+
+#side_list li {
+    display: list-item;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: white;
+    padding: 15px 0px 0px 5px;
+    width: 190px;
+    height: 35px;
+    left: 0;
+}
+
+#side_list li:hover a {
+    color: #5F0080;
+}
+
+#side_list li:hover {
+    background-color: #FAFAFA;
+}
+
+#cleft {
+    width: 250px;
+    float: left;
+}
+
+
+#cleft_header{
+    font-size: 30px;
+    font-weight: bold;
+    height: 45px;
+}

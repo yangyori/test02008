@@ -1,0 +1,52 @@
+package com.market.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.market.vo.PageMaker;
+import com.market.dto.NoticeDTO;
+import com.market.dto.QReplyDTO;
+import com.market.dto.QuestionDTO;
+
+public interface ICustomcenterDAO {
+	
+	/* 공지사항 시작*/
+	public List<NoticeDTO> listSearch(PageMaker pm)throws Exception;
+	
+	public int listSearchCount(PageMaker pm)throws Exception;
+	
+	//공지사항 내용 갖고 오기
+	public NoticeDTO selectNotice(int ntNum) throws Exception;
+	
+	//공지사항 내용 삭제
+	public void deleteNotice(int ntNum) throws Exception;	
+	/* 공지사항 종료*/
+	
+	/* 1:1문의 시작*/
+	public List<QuestionDTO> oneinquirylistSearch(PageMaker pm)throws Exception;
+	
+	public int oneinquirylistSearchCount(PageMaker pm)throws Exception;
+	
+	public Integer count()throws Exception;
+	
+	/*1:1문의 답글 달기*/
+	public void qReplyInsert(QReplyDTO qdto)throws Exception;
+	
+	/*1:1문의 답글 불러오기*/
+	public List<QReplyDTO> list() throws Exception;
+	
+	/*1:1문의 답글 삭제
+	public void delete(Integer fNum)throws Exception;*/
+	
+	/* 1:1문의 종료*/
+	
+	/* 1:1문의 글쓰기*/
+	public void create(QuestionDTO qo) throws Exception;
+	
+	//1:1문의 삭제
+	public void deleteQ(int qNum) throws Exception;
+	/* 1:1문의 글쓰기 종*/
+	
+	
+}

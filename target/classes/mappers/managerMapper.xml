@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.market.dao.IManagerDAO">
+
+	<!-- 공지사항 시작 -->
+	
+	<select id="mnoticelistSearch" resultType="com.market.dto.NoticeDTO">
+		<![CDATA[select ntNum, title, manager, created, cnt, contents from
+		(select /*+INDEX_DESC(notice, pk_notice)*/ 
+		rownum rn,ntNum,title,contents,manager,cnt,created
+		from notice where 1=1  ]]>
+	<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and ntNum > 0 ) 
+		where rn > (#{page} -1) * #{perPageNum}]]>
+	</select>
+	
+	<select id="mnoticeSearchCount" resultType="int">
+		<![CDATA[ select count(ntNum) from notice where 1=1 ]]>
+		<include refid="search"/>
+		<![CDATA[ and ntNum > 0 ]]>
+	</select>
+	
+	<!-- 공지사항 작성insert -->
+	<insert id="insertMNotice">
+		insert into notice(ntNum, title, manager, created, cnt, contents)
+		values (seq_ntNum.nextval,#{title},#{manager},sysdate,0,#{contents})
+	</insert>
+	
+	<!-- 공지사항 종료 -->
+
+	<!-- 1:1문의 리스트 -->
+	<select id="oneinquirylist" resultType="com.market.dto.QuestionDTO">
+		<![CDATA[select qNum, category, title, contents, userID, created, rStatus from
+		(select /*+INDEX_DESC(question, pk_question)*/ 
+		rownum rn,qNum,category,title,contents,userID,created,rStatus 
+		from question where 1=1  ]]>
+	<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and qNum > 0 ) 
+		where rn > (#{page} -1) * #{perPageNum}]]>
+	</select>
+	
+	<!-- 1:1문의 페이지처리 -->
+	<select id="oneinquirylistSearchCount" resultType="int">
+		<![CDATA[ select count(qNum) from question where 1=1 ]]>
+		<include refid="search"/>
+		<![CDATA[ and qNum > 0 ]]>
+	</select>
+	
+	<!-- 1:1문의 개수 처리 -->
+	<select id="count" resultType="Integer">	
+		select count(*) from question
+	</select>
+	
+	<!-- 검색 기능 -->
+	<sql id='search'>
+		<if test="searchType!=null">
+			<if test="searchType == 't'.toString()"> and title like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'c'.toString()"> and contents like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'w'.toString()"> and manager like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'tc'.toString()"> and ( title like '%'|| #{keyword}||'%' OR contents like '%'|| #{keyword}||'%') </if>
+		</if>
+	</sql>
+	
+	<!-- 1:1문의 정보 삭제하기 -->
+	<delete id="deleteOneInquiry">
+		delete question where qNum=#{qNum}
+	</delete>
+	
+	<!-- 1:1문의 답글 시작 -->
+	<!-- 상품문의 답글 작성select(해당 qNum) -->
+	<select id="selectOneInquiry" resultType="QuestionDTO">
+		select * from question where qNum=#{qNum}
+	</select>
+	
+	<!-- 상품문의 답글 작성insert(해당 qNum) -->
+	<insert id="insertQueReply">
+		insert into qReply (rqNum, qNum, replyText, replyer, replyDate)
+		values (seq_querNum.nextval,#{qNum},#{replyText},#{replyer},sysdate)
+	</insert>
+	<update id="updateQueReplyStatus">
+		update question set rStatus=1 where qNum = #{qNum}
+	</update>
+	
+	<select id="list" resultType="QReplyDTO">
+		select * from qReply order by rqNum desc
+	</select>
+	
+	<!-- 1:1문의 답글 삭제 -->
+	<delete id="deleteQueReply">
+		delete qReply where rqNum=#{rqNum}
+	</delete>
+	
+	<!-- 1:1문의 답글 종료 -->
+
+	
+
+	<!-- 상품문의 정보 갖고오기 -->
+	<select id="pQnAlist" resultType="QnaDTO">
+		select q.*, p.subcategory, p.pimg from qna q, product p where q.pCode=p.pCode
+	</select>
+	
+	<!-- 상품문의 정보 삭제하기 -->
+	<delete id="deleteQnA">
+		delete qna where qNum=#{qNum}
+	</delete>
+	
+	<!-- 상품문의 답글 작성select(해당 qNum) -->
+	<select id="selectQnA" resultType="QnaDTO">
+		select q.*,p.psubject, p.subcategory, p.pimg from qna q, product p where q.pCode=p.pCode and qNum=#{qNum}
+	</select>
+	
+	<!-- 상품문의 답글 작성insert(해당 qNum) -->
+	<insert id="insertQnAReply">
+		insert into qnaReply (rqNum,qNum,replyText,replyer,replyDate) 
+		values (seq_pdqrNum.nextval,#{qNum},#{replyText},#{replyer},sysdate)
+	</insert>
+	<update id="updateQnAReplyStatus">
+		update qna set rStatus=1 where qNum = #{qNum}
+	</update>
+	
+	<!-- 상품문의  답글 갖고오기 -->
+	<select id="QnAReplyList" resultType="QnaReplyDTO">
+		select * from qnaReply order by rqNum desc
+	</select>
+	
+	<!-- 상품문의 답글 삭제 -->
+	<delete id="deleteQnAReply">
+		delete qnaReply where rqNum=#{rqNum}
+	</delete>
+	
+	
+</mapper>

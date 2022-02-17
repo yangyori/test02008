@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.market.dao.IMykulryDAO">
+
+
+	<insert id="deliveryInsert">
+		insert into delivery (deliNum, userID, addr1, addr2, recipient, phoneNum, basicAdd)
+		values (seq_dNum.nextval,#{userID},#{addr1}, #{addr2}, #{recipient}, #{phoneNum}, #{basicAdd})
+	</insert>
+	
+	<select id="selectAllDelivery" resultType="DeliveryDTO">
+		select * from delivery where userID=#{userID}
+	</select>
+
+	<select id="deliSelect" resultType="DeliveryDTO">
+		select * from delivery where userID=#{userID} and basicAdd=1
+	</select>
+	
+	<select id="selectNumDelivery" resultType="DeliveryDTO">
+		select * from delivery where deliNum=#{deliNum}
+	</select>
+	
+	<update id="updateBasicAddr">
+		update delivery set basicAdd=1 where userID=#{userID} and deliNum=#{deliNum}
+	</update>
+	
+	<update id="updateDeliverInfo">
+		update delivery 
+		set addr2=#{addr2}, recipient=#{recipient}, phoneNum=#{phoneNum} 
+		where deliNum=#{deliNum}
+	</update>
+	
+	<update id="updateBasicAddrZero">
+		update delivery set basicAdd=0 where userID=#{userID} and basicAdd=1
+	</update>
+	
+	<delete id="deleteDeliverInfo">
+		delete delivery where deliNum=#{deliNum}
+	</delete>
+	
+
+	<select id="selectOrderAll" resultType="OdersDTO">
+		select o.ordernum, o.order_date, b.psubject, b.subcategory, b.pimg, o.payment, b.ordercount, b.pcode  
+		from orders o, (select p.psubject, p.subcategory, p.pimg, p.pcode ,od.ordernum, od.ordercount from product p, (select max(pcode) pcode, count(*) orderCount, ordernum from order_detail where userID=#{userID} group by ordernum) od where p.pCode=od.pCode) b 
+		where o.ordernum=b.ordernum
+	</select>
+	
+	<select id="selectOrderDetail" resultType="OrderDetailDTO">
+		select p.pcode, p.psubject, p.subcategory, p.price, p.pimg, od.cnt 
+		from product p, order_detail od 
+		where p.pcode=od.pcode and od.userID=#{userID} and od.orderNum=#{orderNum}
+	</select>
+	
+	<select id="selectOrderPreivew" resultType="OrderDetailDTO">
+		select * from order_detail NATURAL JOIN product where userID=#{userID}
+	</select>
+	
+	<select id="selectOrderAllPreview" resultType="OdersDTO">
+		select * from orders where userID=#{userID}
+	</select>
+	
+		<select id="favoritlist" resultType="FavoritDTO">
+    	select f.fNum, f.pCode, f.userID, p.subcategory, p.psubject, p.pimg, p.price from product p, favorit f where p.pCode=f.pCode and f.userID=#{userID}
+    </select>
+	
+	<select id="favcount" resultType="Integer">	
+		select count(*) from favorit
+	</select>
+	
+	<delete id="deletefavoritlist">
+		delete favorit where fNum=#{fNum}
+	</delete>
+	
+	<insert id="insertfavoritlist">
+		insert into favorit (fNum, pCode, userID)
+		<![CDATA[values (favNum.nextval, #{pCode}, #{userID})]]>
+	</insert>
+
+	<insert id="insertReview">
+		insert into pReview (rNum, pCode, title, contents, userID, created, cnt)
+		values (seq_reivewNum.nextval,#{pCode}, #{title}, #{contents}, #{userID}, sysdate, 0)
+	</insert>
+	
+	<select id="selectCompletReviews" resultType="PReviewDTO">
+		select pr.rNum, pr.title,pr.contents,pr.userid,pr.created,pr.cnt,p.* from pReview pr, product p where pr.pCode=p.pCode and userID=#{userID}
+	</select>
+	
+	<delete id="deleteReview">
+		delete pReview where rNum=#{rNum}
+	</delete>
+	
+	<select id="selectOneReview" resultType="PReviewDTO">
+		select pr.rNum, pr.title,pr.contents,pr.userid,pr.created,pr.cnt,p.* from pReview pr, product p where pr.pCode=p.pCode and userID=#{userID} and rNum=#{rNum}
+	</select>
+	
+	<update id="updateOneReview">
+		update pReview set title=#{title}, contents=#{contents}, created=sysdate where rNum=#{rNum}
+	</update>
+	
+	<insert id="insertQnA">
+		insert into qna (qNum, pCode, userID, qTitle, qContents, created, rStatus)
+		values (seq_pdqNum.nextval,#{pCode}, #{userID}, #{qTitle}, #{qContents}, sysdate, 0)
+	</insert>
+	
+	<!-- 상품문의 정보 갖고오기 -->
+	<select id="pQnAlist" resultType="QnaDTO">
+		select q.*, p.subcategory, p.pimg from qna q, product p where q.pCode=p.pCode and userID=#{userID}
+	</select>
+	
+	<update id="updateQnA">
+		update qna set qTitle=#{qTitle}, qContents=#{qContents}, created=sysdate where qNum=#{qNum}
+	</update>
+	
+	<!-- 상품문의 정보 삭제하기 -->
+	<delete id="deleteQnA">
+		delete qna where qNum=#{qNum}
+	</delete>
+
+</mapper>

@@ -1,0 +1,30 @@
+CREATE TABLE product(
+	pCode		number	NOT NULL	PRIMARY KEY, -- 제품 고유번호 PK
+	psubject		nvarchar2(50),  -- 제품 제목(이름) 
+	category		nvarchar2(50),  -- 제품 카테고리 
+	subcategory	nvarchar2(50),  -- 제품 서브카테고리
+	pinfo		nvarchar2(50),  -- 제품 설명 
+	price		number,	       -- 제품 가격	
+	unit		nvarchar2(50),  -- 판매 단위 
+	origin		nvarchar2(50),  -- 원산지 
+	shelfLife		nvarchar2(50),  -- 유통기한
+	img		nvarchar2(50),  -- 대표 이미지
+	created		Date,  -- 작성일자 
+	amount		number, -- 수량 
+	sale		number, -- 할인
+	salesvolume	number  -- 판매량
+
+
+insert into product values 
+	(pCode, '유기농 느타리 버섯 200g', '콩나물버섯', '쫄깃한 식감에 풍부한 맛을 건강까지', 1611, '1봉지', '국내',
+	sysdate, amount, sale, salesvolume);
+
+
+insert into product values
+	(pCode, '[kurly's] 국산콩 콩나물 250g(제주콩/무농약)', '콩나물버섯', 1등급 제주콩을 맑은 물로 길러낸(1봉/250g)', 1500, '1봉', '국내',
+	sysdate, amount, sale, salesvolume);
+
+
+
+
+

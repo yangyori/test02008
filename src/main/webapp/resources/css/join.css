@@ -1,0 +1,472 @@
+#wrap {
+    width: 1024px;
+    margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+#foot {
+    float: left;
+    margin-top: 20px;
+    border-top: 1px solid gainsboro;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.clear {
+    clear: both;
+}
+/*헤더바 시작*/
+
+#header{
+    width: 1024px;
+    margin-top: 5px;           
+    float: left;            
+}
+
+#information {
+    float: left;
+}
+
+#logo {
+    text-align: center;
+    
+}
+
+#logo img {
+    width: 100px;
+}
+
+
+#top_menu {
+    position: relative;
+    padding: 3px 0px 0px 3px;
+    font-size: 12px;
+    float: right;
+}
+
+#top_menu li {
+    position: relative;
+    text-align: center;
+    float: left;
+}
+
+.li1 a{
+    color:#5F0080;
+}
+
+.li1{
+    padding: 0px 12px;       
+    width: 50px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+.li2{
+    padding: 0px 12px;       
+    width: 40px;
+    height: 18px;
+    border-right: 1px solid gainsboro
+}
+.li3{
+    padding: 0px 12px;       
+    width: 60px;
+    height: 18px;
+    
+}
+
+.li4{
+    padding: 0px 12px;       
+    width: 100px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+
+.pd{
+    padding-right:-px ;
+}
+
+
+
+.span01 {
+    display: inline-block;
+    width: 30px;
+    color: #949296;
+    margin-right: 5px;
+    background: #FFFF;
+    border: 1px solid #949296 ;
+    font-size: 9px;
+    border-radius: 30px;
+    text-align: center;
+    
+}
+
+/* 드랍다운 */
+#top_menu ul {
+    display: none;
+}
+
+#top_menu ul li {   
+    padding: 5px;
+    font-size: 12px;
+    width: 100%;
+    height: 14px;
+    text-align: left;
+    float: none;
+}
+
+#top_menu li:hover ul {
+    display: block;
+    border:1px solid rgb(240, 240, 240);
+    background-color: white;
+    margin-top: 3px;
+    width: 100px;
+    float: right;
+}
+/* 드랍다운 종료 */
+
+#main_bar {
+    margin-top: 10px;
+    background-color: white;
+    width: 1024px;
+    float: left;
+}
+
+#main_menu {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;    
+    float: left;
+}
+#main_left {
+    float: left;            
+}
+
+/*수정된부분*/
+#main_menu>li {
+    position: relative;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    width: 132px;            
+    float: left;
+}
+
+
+#main_menu li span {
+    display: block;
+    float: left;
+    margin-top: -1px;
+}
+
+#main_menu ul li:hover {
+    background-color: #F7F7F7;
+}
+
+#main_menu li:hover>a{
+    color: #5F0080;
+}
+
+.mdrpwrap{
+    margin-top: 16px;
+}
+
+/* 드랍다운 */
+.mdropdown {
+    float: left;
+}
+
+.mdropdown .mdropbtn {
+    outline: none;
+    color: black;
+    padding-top: 10px;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.mdropdown-content {
+    float: left;
+    display: none;
+    position: absolute;
+    width: 400px;   
+}
+
+.tablinks{
+    background-color: white;
+}
+
+.mdropdown-content li{
+    height: 30px;
+    padding: 8px 0px 0px 5px;
+}
+
+.mdropdown-content a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: left;
+}
+
+
+.mdropdown-content a:hover {
+    background-color: #F7F7F7;
+    color: black;
+}
+
+.mdropdown:hover .mdropdown-content {
+    float: left;
+    display: block;
+    z-index: 200;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 200px;
+    border-left: none;
+    display: none;
+    background-color: #F7F7F7;
+}
+
+.mcategory{
+    width: 140px;
+    border: 1px solid gainsboro;
+    float: left;
+}
+
+.mcontents{    
+    display: none;
+
+}
+
+.mdropdown-content:hover .mcontents{
+    display: block;
+    border: 1px solid gainsboro;
+    border-left: none;
+    float: left;
+    
+    
+}
+
+.mdropdown-content:hover .mcategory{
+    border-right: none;
+}
+
+.active {
+    background-color: #F7F7F7;
+}
+
+.active a{
+    color: #5F0080;
+  }
+
+/* 드랍다운 종료 */
+
+
+
+#main_right {
+    width: 368px;
+    height: 38px;
+    padding-top: 2px;
+    float: left;    
+}
+
+#search {
+    width: 200px;
+    height: 35px;
+    background-color: #F7F7F7;
+    float: left;
+    margin-left: 3px;
+    border-radius: 20px;            
+    text-align: center;
+
+}
+
+#search input {
+    display: block;
+    width: 170px;
+    height: 30px;
+    font-size: 10px;
+    background-color: #F7F7F7;
+    border-radius: 15px;
+    border: 0px;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 3px;
+    outline: none;
+    float: left;
+}
+
+#search input::placeholder {
+    font-weight: bold;
+}
+
+#search span {            
+    margin-top: 5px;
+    float: left;
+}
+
+.lfc{            
+    width: 40px;
+    margin-top: 6px;
+    padding-left: 15px;
+    float: left;
+    
+    text-align: center;
+}
+
+#bottom {
+    float: left;
+    width: 1024px;
+    margin-top: 100px;
+}
+/*수정된 부분*/
+
+
+/*헤더바 종료*/
+
+
+
+/*회원가입*/
+.jcontainer{
+    width: 1024px;
+    margin-top : 60px;   
+    margin-bottom: -60px   
+}
+
+.create{
+    width: 700px;
+    text-align : center;
+    padding: 30px;
+    margin-right : auto;
+    margin-left : auto;
+}
+.insert table{
+    width: 700px;
+    border-top : 2px solid black;
+    margin-right : auto;
+    margin-left : auto;
+    border-collapse : collapse;
+}
+.insert td{
+    border-bottom : 1px solid black;
+
+}
+.insert caption{
+    text-align : center;
+    margin-bottom: 30px;
+}
+.col1{
+    background-color : rgb(225, 220, 236);
+    padding : 10px;
+    height: 50px;
+    text-align : right;
+    font-weight: bold;
+    font-size : 0.8em;
+}
+.col2{
+    text-align : left;
+    padding: 5px;
+}
+
+
+.insert .select{
+    width: 150px;
+    height: 20px;
+    background-size : 20px;
+    border-radius: 4px;
+    border : 1px solid;
+}
+.select option{
+    padding : 3px 0;
+}
+#seasrchAddr{
+    width: 130px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #5F0080; 
+    color: #5F0080;
+    border-radius: 3px;
+}
+#seasrchAddr:hover{
+    background-color: #e0cff7;
+    color : black;
+    cursor: pointer;
+}
+#sample6_address{
+    width: 300px;
+    height: 20px;
+    border-radius: 3px;
+    margin : 2px;
+    border : 1px solid;
+
+}
+#sample6_detailAddress{
+    width: 300px;
+    height: 20px;
+    border-radius: 3px;
+    margin : 2px;
+    border : 1px solid;
+ 
+}
+.but3 {
+    height: 35px;
+    width: 150px;
+    background-color: white;
+    border-radius: 3px;
+    border: 2px solid #5F0080;
+}
+.but4{
+    margin : 10px;
+    height: 35px;
+    width: 150px;
+    background-color: rgb(248, 248, 248);
+    border-radius: 3px;
+    border: 2px solid #5F0080;
+}
+.but3:hover {
+    background-color: #e0cff7;
+    color: white;
+    border: 2px solid #e0cff7;
+    cursor: pointer;
+}
+.but4:hover {
+    background-color: #e0cff7;
+    color: white;
+    border: 2px solid #e0cff7;
+    cursor: pointer;
+}
+.insert p{
+    font-size: 12px;
+}
+
+.num{
+    color: red;
+}
+
+#idChk{
+    background-color: white;
+    border: 1px solid #5F0080; 
+    color: #5F0080;
+    width: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/*회원가입*/

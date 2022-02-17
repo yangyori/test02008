@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.market.dao.IProductsDAO">
+
+	<select id="selectAllProduct" resultType="ProductDTO">
+		select * from product where subcategory=#{subcategory}
+	</select>
+	
+	<select id="selectCountProduct" resultType="int">
+		select count(*) from product where subcategory=#{subcategory}
+	</select>
+	
+	<select id="selectKeyowrd" resultType="ProductDTO">
+		select * from product where psubject like '%' || #{keyword} || '%'
+	</select>
+	
+	<select id="selectKeyowrdCount" resultType="int">
+		select count(*) from product where psubject like '%' || #{keyword} || '%'
+	</select>
+	
+	<select id="selectKeyowrdOrder" resultType="ProductDTO">
+		select * from product where psubject like '%' || #{keyword} || '%' order by ${subject} desc
+	</select>
+	
+	<select id="selectKeyowrdOrderAsc" resultType="ProductDTO">
+		select * from product where psubject like '%' || #{keyword} || '%' order by price asc
+	</select>	
+	
+	<!-- 카테고리별 목록(신상품) -->
+	<select id="selectNewAllProduct" resultType="ProductDTO">
+		select * from product where subcategory=#{subcategory} order by created desc
+	</select>
+	<!-- 카테고리별 목록(판매량) -->
+	<select id="selectsellAllProduct" resultType="ProductDTO">
+		select * from product where subcategory=#{subcategory} order by salesvolume desc
+	</select>
+	<!-- 카테고리별 목록(낮은 가격) -->
+	<select id="selectCheapAllProduct" resultType="ProductDTO">
+		select * from product where subcategory=#{subcategory} order by price asc
+	</select>
+	<!-- 카테고리별 목록(높은 가격) -->
+	<select id="selectExpensiveAllProduct" resultType="ProductDTO">
+		select * from product where subcategory=#{subcategory} order by price desc
+	</select>
+	
+	<!-- 신상품 목록 -->
+	<select id="selectNewProduct" resultType="ProductDTO">
+		select * from product order by created desc
+	</select>
+	<!-- 상품 개수 -->
+	<select id="countNewProduct" resultType="Integer">	
+		select count(*) from product
+	</select>
+	
+	<!-- 베스트상품 목록 -->
+	<select id="selectBestProduct" resultType="ProductDTO">
+		select * from product order by salesvolume desc
+	</select>
+	<!-- 상품 개수 -->
+	<select id="countBestProduct" resultType="Integer">	
+		select count(*) from product
+	</select>
+	
+	<!-- 알뜰상품 목록 -->
+	<select id="selectCheapProduct" resultType="ProductDTO">
+		select * from product order by price asc
+	</select>
+	<!-- 상품 개수 -->
+	<select id="countCheapProduct" resultType="Integer">	
+		select count(*) from product
+	</select>
+	
+	<select id="selectProduct" resultType="ProductDTO">
+		select * from product where pCode=#{pCode}
+	</select>
+	
+	<select id="selectFavorit" resultType="FavoritDTO">
+		select * from favorit where pCode=#{pCode} and userID=#{userID} 
+	</select>
+	
+	<select id="selectExpImg" resultType="ProductExplainImgDTO">
+		select * from productExplainImg where pCode=#{pCode}
+	</select>
+	
+	<select id="selectDetailImg" resultType="ProductDetailImgDTO">
+		select * from productDetailImg where pCode=#{pCode}
+	</select>
+	
+	<insert id="insertBucket">
+		insert into bucket (bkNum, userID, pCode, orderCnt)
+		<![CDATA[values (bucketNum.nextval, #{userID}, #{pCode}, #{orderCnt})]]>
+	</insert>
+	
+	<select id="seletEqBucket" resultType="BucketDTO">
+		select * from bucket where userID=#{userID} and pCode=#{pCode}
+	</select>
+	
+	<select id="selectAllBucket" resultType="BucketDTO">
+		select b.bkNum, b.userID, b.pCode, b.orderCnt, p.subcategory, p.psubject, p.pimg, p.price from product p, bucket b where p.pCode=b.pCode and b.userID=#{userID}
+	</select>
+	
+	<select id="selectChekBucket" resultType="BucketDTO">
+		select b.bkNum, b.userID, b.pCode, b.orderCnt,p.subcategory, p.psubject, p.pimg, p.price 
+		from product p, bucket b 
+		where p.pCode=b.pCode and b.userID=#{userID} and b.bkNum in ${chkbucket}
+	</select>
+	
+	<select id="selectFirstBucket" resultType="BucketDTO">
+		select b.bkNum, b.userID, b.pCode, b.orderCnt,p.subcategory, p.psubject, p.pimg, p.price 
+		from product p, bucket b 
+		where p.pCode=b.pCode and b.userID=#{userID} and rownum=1 and b.bkNum in ${chkbucket}
+	</select>
+	
+	<select id="countBucket" resultType="int">
+		select count(*)
+		from product p, bucket b 
+		where p.pCode=b.pCode and b.userID=#{userID} and b.bkNum in ${chkbucket}
+	</select>
+	
+	<update id="updateCountBucket">
+		update bucket set orderCnt=#{orderCnt} where bkNum=#{bkNum}	
+	</update>
+	
+	<delete id="deleteBucket">
+		delete bucket where bkNum=#{bkNum}
+	</delete>
+		
+	<insert id="insertOrder">
+		insert into orders (orderNum, userID, recipient, addr1, addr2, phoneNum, order_Date, payment) 
+		values (seq_orderNum.nextval, #{userID}, #{recipient}, #{addr1}, #{addr2}, #{phoneNum}, sysdate, #{payment})
+	</insert>
+	
+	<insert id="insertDetailOrder">
+		insert into order_detail (oddtNum, userID, pCode, cnt, orderNum) 
+		values (seq_oddtNum.nextval, #{userID}, #{pCode}, #{cnt}, (select max(orderNum) from orders))
+	</insert>
+	
+	<update id="updateProductCount">
+		update product set salesvolume=(select salesvolume from product where pCode=#{pCode})+#{orderCnt} where pCode=#{pCode}
+	</update>
+
+	<select id="selectOrderBucket" resultType="BucketDTO">
+		select * from bucket where userID=#{userID} and bknum in ${chkbucket}
+	</select>
+
+	<delete id="deleteOrderBucket">
+		delete bucket where bkNum in ${chkbucket}
+	</delete>
+	
+	<select id="selectReviewInfo" resultType="PReviewDTO">
+		select * from pReview where pCode=#{pCode}
+	</select>
+	
+	<select id="selectPreviewNull" resultType="OrderDetailDTO">
+		select * from order_detail where userID=#{userID} and pCode=#{pCode}
+	</select>
+	
+	<update id="updatePreviewCnt">
+		update pReview set cnt=(select cnt from pReview where rNum=#{rNum})+1 where rNum=#{rNum}
+	</update>
+	
+	<!-- Product QnA 시작 -->
+	
+	<select id="pQnAlistSearch" resultType="com.market.dto.QnaDTO">
+		<![CDATA[select qNum, pCode, userID, qTitle, qContents, created from
+		(select /*+INDEX_DESC(qna, pk_qna)*/ 
+		rownum rn,qNum,pCode,userID,qTitle,qContents,created 
+		from qna where 1=1 and pCode=#{pCode}]]>
+	<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and qNum > 0 ) 
+		where rn > (#{page} -1) * #{perPageNum}]]>
+	</select>
+		
+	<select id="pQnAlistSearchCount" resultType="int">
+		<![CDATA[ select count(qNum) from qna where 1=1 and pCode=#{pCode}]]>
+		<include refid="search"/>
+		<![CDATA[ and qNum > 0 ]]>
+	</select>
+	
+	<select id="pQnACount" resultType="Integer">	
+		select count(*) from qna where pCode=#{pCode}
+	</select>
+	
+	<sql id='search'>
+		<if test="searchType!=null">
+			<if test="searchType == 't'.toString()"> and title like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'c'.toString()"> and contents like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'w'.toString()"> and manager like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'tc'.toString()"> and ( title like '%'|| #{keyword}||'%' OR contents like '%'|| #{keyword}||'%') </if>
+		</if>
+	</sql>
+	<!-- Product QnA 답글 시작 -->
+	<insert id="qReplyInsert">
+		<![CDATA[insert into qnaReply (rqNum, qNum, replyText, replyer,replyDate)
+		values (seq_pdrqNum.nextval,#{qNum},#{replyText},#{replyer},sysdate)]]>
+	</insert>
+	
+	<select id="list" resultType="QReplyDTO">
+		select * from qnaReply order by rqNum desc
+	</select>
+	<!-- Product QnA 답글 종료 -->
+	
+	<!-- Product QnA 종료 -->
+	
+</mapper>

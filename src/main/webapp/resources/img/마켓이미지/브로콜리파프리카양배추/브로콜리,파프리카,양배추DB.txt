@@ -1,0 +1,32 @@
+CREATE TABLE product(
+	pCode		number	NOT NULL	PRIMARY KEY, -- 제품 고유번호 PK
+	psubject		nvarchar2(50),  -- 제품 제목(이름) 
+	category		nvarchar2(50),  -- 제품 카테고리 
+	subcategory	nvarchar2(100),  -- 제품 서브카테고리
+	pinfo		nvarchar2(50),  -- 제품 설명 
+	price		number,	       -- 제품 가격	
+	unit		nvarchar2(50),  -- 판매 단위 
+	origin		nvarchar2(50),  -- 원산지 
+	shelfLife		nvarchar2(50),  -- 유통기한
+	img		nvarchar2(50),  -- 대표 이미지
+	created		Date,  -- 작성일자 
+	amount		number, -- 수량 
+	sale		number, -- 할인
+	salesvolume	number  -- 판매량 
+);
+
+
+
+insert into product values (pCode, '친환경 브로콜리', '채소', '브로콜리파프리카양배추', '풍부한 영양이 담긴 초록 꽃송이', 4290, '1봉지', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '친환경 미니 파프리카 150g', '채소', '브로콜리파프리카양배추', '과일 못지 않은 상큼함', 3990, '1팩', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '친환경 조각 양배추 400g', '채소', '브로콜리파프리카양배추', '건강하게 재배한 만능채소', 2290, '1통', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '참타리 버섯 200g', '채소', '콩나물버섯', '쫄깃한 식감으로 입맛을 돋구는', 1290, '1봉지', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '깐대파 500g', '채소', '양파대파마늘배추', '만능 양념채소', 2990, '1봉지', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '제주 흙당근 1kg', '채소', '고구마감자당근', '제주도에서 자란 영양 가득 채소', 3190, '1봉지', '국산', sysdate, amount, sale, salevolume);
+
+insert into product values (pCode, '청경채 300g', '채소', '양파대파마늘배추', '아삭함과 부드러움을 동시에 지닌', 2990, '1봉지', '국산', sysdate, amount, sale, salevolume);

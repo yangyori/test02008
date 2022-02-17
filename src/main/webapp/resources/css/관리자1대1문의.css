@@ -1,0 +1,781 @@
+#wrap {
+    width: 1024px;
+    margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+#foot {
+    float: left;
+    margin-top: 20px;
+    border-top: 1px solid gainsboro;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.clear {
+    clear: both;
+}
+/*헤더바 시작*/
+
+#header{
+    width: 1024px;
+    margin-top: 5px;           
+    float: left;            
+}
+
+#information {
+    float: left;
+}
+
+#logo {
+    text-align: center;
+    
+}
+
+#logo img {
+    width: 100px;
+}
+
+
+#top_menu {
+    position: relative;
+    padding: 3px 0px 0px 3px;
+    font-size: 12px;
+    float: right;
+}
+
+#top_menu li {
+    position: relative;
+    text-align: center;
+    float: left;
+}
+
+.li1 a{
+    color:#5F0080;
+}
+
+.li1{
+    padding: 0px 12px;       
+    width: 50px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+.li2{
+    padding: 0px 12px;       
+    width: 40px;
+    height: 18px;
+    border-right: 1px solid gainsboro
+}
+.li3{
+    padding: 0px 12px;       
+    width: 60px;
+    height: 18px;
+    
+}
+
+.li4{
+    padding: 0px 12px;       
+    width: 100px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+
+.pd{
+    padding-right:-px ;
+}
+
+
+
+.span01 {
+    display: inline-block;
+    width: 30px;
+    color: #949296;
+    margin-right: 5px;
+    background: #FFFF;
+    border: 1px solid #949296 ;
+    font-size: 9px;
+    border-radius: 30px;
+    text-align: center;
+    
+}
+
+/* 드랍다운 */
+#top_menu ul {
+    display: none;
+}
+
+#top_menu ul li {   
+    padding: 5px;
+    font-size: 12px;
+    width: 100%;
+    height: 14px;
+    text-align: left;
+    float: none;
+}
+
+#top_menu li:hover ul {
+    display: block;
+    border:1px solid rgb(240, 240, 240);
+    background-color: white;
+    margin-top: 3px;
+    width: 100px;
+    float: right;
+}
+/* 드랍다운 종료 */
+
+#main_bar {
+    margin-top: 10px;
+    background-color: white;
+    width: 1024px;
+    float: left;
+}
+
+#main_menu {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;    
+    float: left;
+}
+#main_left {
+    float: left;            
+}
+
+/*수정된부분*/
+#main_menu>li {
+    position: relative;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    width: 132px;            
+    float: left;
+}
+
+
+#main_menu li span {
+    display: block;
+    float: left;
+    margin-top: -1px;
+}
+
+#main_menu ul li:hover {
+    background-color: #F7F7F7;
+}
+
+#main_menu li:hover>a{
+    color: #5F0080;
+}
+
+.mdrpwrap{
+    margin-top: 16px;
+}
+
+/* 드랍다운 */
+.mdropdown {
+    float: left;
+}
+
+.mdropdown .mdropbtn {
+    outline: none;
+    color: black;
+    padding-top: 10px;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.mdropdown-content {
+    float: left;
+    display: none;
+    position: absolute;
+    width: 400px;   
+}
+
+.tablinks{
+    background-color: white;
+}
+
+.mdropdown-content li{
+    height: 30px;
+    padding: 8px 0px 0px 5px;
+}
+
+.mdropdown-content a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: left;
+}
+
+
+.mdropdown-content a:hover {
+    background-color: #F7F7F7;
+    color: black;
+}
+
+.mdropdown:hover .mdropdown-content {
+    float: left;
+    display: block;
+    z-index: 200;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 200px;
+    border-left: none;
+    display: none;
+    background-color: #F7F7F7;
+}
+
+.mcategory{
+    width: 140px;
+    border: 1px solid gainsboro;
+    float: left;
+}
+
+.mcontents{    
+    display: none;
+
+}
+
+.mdropdown-content:hover .mcontents{
+    display: block;
+    border: 1px solid gainsboro;
+    border-left: none;
+    float: left;
+    
+    
+}
+
+.mdropdown-content:hover .mcategory{
+    border-right: none;
+}
+
+.active {
+    background-color: #F7F7F7;
+}
+
+.active a{
+    color: #5F0080;
+  }
+
+/* 드랍다운 종료 */
+
+
+
+#main_right {
+    width: 368px;
+    height: 38px;
+    padding-top: 2px;
+    float: left;    
+}
+
+#search {
+    width: 200px;
+    height: 35px;
+    background-color: #F7F7F7;
+    float: left;
+    margin-left: 3px;
+    border-radius: 20px;            
+    text-align: center;
+
+}
+
+#search input {
+    display: block;
+    width: 170px;
+    height: 30px;
+    font-size: 10px;
+    background-color: #F7F7F7;
+    border-radius: 15px;
+    border: 0px;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 3px;
+    outline: none;
+    float: left;
+}
+
+#search input::placeholder {
+    font-weight: bold;
+}
+
+#search span {            
+    margin-top: 5px;
+    float: left;
+}
+
+.lfc{            
+    width: 40px;
+    margin-top: 6px;
+    padding-left: 15px;
+    float: left;
+    
+    text-align: center;
+}
+
+#bottom {
+    float: left;
+    width: 1024px;
+    margin-top: 100px;
+}
+/*수정된 부분*/
+
+
+
+
+/*헤더바 종료*/
+
+
+/*상품문의*/
+#mywrap{
+    width: 1024px;
+    float: left;
+    margin-top: 50px;
+}
+
+#left_header{
+    font-size: 30px;
+    font-weight: bold;
+    height: 45px;
+}
+
+#right_header{
+    font-size: 23px;
+    font-weight: bold;
+    height: 45px;
+    
+}
+#side_menu {
+    margin-top: 20px;
+}
+
+#side_list {
+    border: 1px solid #f2f2f2;
+    width: 195px;
+}
+
+#side_list li {
+    display: list-item;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: white;
+    padding: 15px 0px 0px 5px;
+    width: 190px;
+    height: 35px;
+    left: 0;
+}
+
+#side_list li:hover a {
+    color: #5F0080;
+}
+
+#side_list li:hover {
+    background-color: #FAFAFA;
+}
+
+#myleft {
+    width: 250px;
+    float: left;
+}
+
+
+.pqboard_list_wrap {
+
+    float: left;
+    width: 774px;
+}
+.pqboard_list_wrap .pqpaging{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0;
+}
+.pqboard_list_wrap .pqpaging a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    font-size: 20px;
+    color: lightgray;
+}
+
+#article_right_header{    
+    height: 45px;    
+}
+
+#article_right_header > p{ 
+    text-align: left;
+    font-size: 23px;
+    font-weight: bold;
+    float: left;
+}
+
+#article_right_header span{ 
+    font-size: 12px;
+    color: gray;
+}
+
+.aco_list {
+    float: left;
+    width: 774px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.aco_list div,
+.aco_list li{
+    float: left;
+}
+
+.aco_list li{
+    width: 774px;
+}
+
+.divth1{
+    width: 60px;
+    text-align: center;
+}
+.divth2{
+    width: 430px;
+    text-align: center;
+}
+.divth3{
+    width: 80px;
+    text-align: center;
+}
+.divth4{
+    width: 100px;
+    text-align: center;
+}
+
+.lith{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.lith div{
+    height: 40px;
+    padding-top: 15px;
+}
+
+
+
+
+.acoclick{
+    width: 774px; 
+    padding: 5px 0px 5px 0px; 
+
+}
+.btnGroup{
+    width: 100px;
+}
+
+.divtd1{
+    width: 60px;
+    text-align: center;
+  
+}
+.divtd2{
+    width: 430px;
+
+}
+.divtd3{
+    width: 80px;
+    text-align: center;
+
+}
+.divtd4{
+    width: 100px;
+    text-align: center;
+
+}
+
+
+
+.lileft button{
+    width: 60px;
+    height: 20px;
+    border-radius: 5px;
+    
+}
+
+.rbtn1{
+    background-color: white;
+    border: 1px solid gainsboro;
+}
+.rbtn2{
+    cursor: pointer;
+    background-color: #5F0080;
+    color: white;
+    border: none;
+}
+
+
+.text_box{
+    width: 774px;   
+    display: none;
+    background-color: #FAFAFA;
+}
+
+.text_box img{
+    width: 20px; height: 20px;
+}
+.text_box ul{
+    float: right;
+}
+.text_box li{
+    width: 60px;
+    text-align: center;
+}
+.lileft{
+    border-right: 1px solid gainsboro;
+    padding-right: 20px;
+}
+
+.pqpaging{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0;
+}
+.pqpaging a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    font-size: 20px;
+    color: lightgray;
+}
+
+#newReplyText{
+	width:600px;
+	height:50px;
+}
+p{
+	font-weight:700;
+}
+.text_box > div > span{
+	font-size: 20px;
+	font-weight: 700;
+}
+.replies{
+	padding: 20px 0 15px 0;
+	margin-bottom: 10px;
+	width: 740px;
+	border-bottom: solid 1px #f2f2f2;
+	border-top: solid 1px #f2f2f2;
+	line-height: 25px;
+	display:block;
+}
+#adminInsertDiv{
+	padding: 20px 0 0 0;
+	line-height: 30px;
+}
+#replydate{
+	float: right;
+}
+
+.replies > span{
+	margin-left: 30px;
+	font-size: 20px;
+	font-weight: 700;
+}
+#adminDiv{
+	text-aling: left;
+	padding-left:50px;
+	line-height: 30px;
+}
+#adminInsertDiv > h3{
+	padding-left:40px;
+}
+#replyBtnDiv{
+	margin: 10px 0 10px 0;
+	float:right;
+}
+
+/* 모달창 시작 */
+#modal0.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 100;
+    /*���â on off*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#modal0 .modal-window {
+    background: white;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13.5px);
+    -webkit-backdrop-filter: blur(13.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 800px;
+    height: 500px;
+    position: relative;
+    top: -70px;
+    padding: 10px;
+}
+
+.modal-window tr {
+    border-bottom: 1px solid rgb(235, 233, 233);
+    height: 50px;
+    font-size: 15px;
+}
+
+.object {
+    float: left;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px gray;
+}
+
+.close-area{
+    float: right;
+}
+
+#modal .content {
+    top: 30%;
+    text-align: left;
+    width: 80%;
+}
+
+#modal .comtent_top {
+    float: left;
+}
+
+.veg {
+    top: 30%;
+    width: 80%;
+    text-align: left;
+    font-weight: 600;
+
+}
+
+.boardtitle {
+    padding: 10px 30px;
+}
+
+.contents {
+    padding: 10px 30px;
+}
+
+.iptext{
+    border: 1px solid lightgray;
+}
+
+textarea {
+    
+    font-size: 13px;
+    text-align: left;
+    resize: none;
+    border: 1px solid lightgray;
+}
+
+#newReplyeWriter{
+	border: 1px solid lightgray;
+}
+
+.popmodal_btn {
+    background-color: lightgray;
+    color: white;
+    border: none;
+    width: 120px;
+    height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.popmodal_btn:focus {
+    outline: 0;
+}
+
+.popmodal_btn:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+.modaltop{
+    width: 800px;
+    margin-bottom: 30px;
+    float: right;
+}
+
+.modaltable{
+    width: 800px;
+    margin-top: 20px;
+    
+}
+.modalbtns{
+    width: 800px;
+    text-align: center;
+}
+
+/* 모달창 종료 */
+
+/*pagination*/
+
+.pagination {
+	display: inline-block;
+	padding: 60px 0 20px 0;
+}
+
+.pagination a {
+  	color: black;
+  	float: left;
+  	padding: 8px 16px;
+  	text-decoration: none;
+  	transition: background-color .3s;
+  	border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  	background-color: #F7F7F7;
+  	color: black;
+  	border: 1px solid #ddd;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+/*pagination 종료*/
+
+#middle2_ul2{
+    padding: 120px 10px 120px 10px;
+    text-align: center;
+    border-bottom: solid 1px #e7e6e6;
+}
+#middle2_li2{
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgb(54, 54, 54);
+}

@@ -1,0 +1,94 @@
+
+p{
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.board_list_wrap li{
+    text-align: left;
+    font-size: 12px;
+    color: gray;
+}
+
+
+.board_list_wrap{
+    padding:50px;
+}
+
+.board_list{
+    width: 100%;
+}
+.board_list thead tr{
+    border-top: 2px solid black;  border-bottom: 2px solid black;  
+    height: 50px;
+    font-size: 15px;
+}
+.board_list tr{
+    border-bottom: 1px solid gray;
+}
+.board_list th,
+.board_list td{
+    padding: 10px;
+    font-size: 12px;
+}
+
+.board_list td{
+    text-align: center;
+    color: #999;
+    font-weight: 600;
+}
+
+.board_list .title{
+    text-align: left;
+    font-weight: 0;
+}
+.board_list .ok{
+    color: rgb(110,13,110);
+}
+.board_list .title:hover{
+    text-decoration: underline;
+}
+
+.board_list_wrap .paging{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0;
+}
+.board_list_wrap .paging a{
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    font-size: 20px;
+}
+.board_list_wrap .paging a.pre{
+    color: lightgray;
+}
+.board_list_wrap .paging a.next{
+    color: gray;
+}
+.board_list_wrap .paging a:hover{
+    color : lightgray;
+}
+
+.btn-modal{
+    width:120px;
+	height: 40px;
+	color:#fff;
+	background: rgb(110, 13, 110);
+	font-size: 16px;
+	border:none;
+	border-radius: 10px;
+	transition:0.3s;
+	position: absolute;
+	right: 10px;
+	transform: translate(-50%,-50%);
+}
+
+.btn-modal:hover{
+	background: rgb(228, 54, 228);
+	cursor: pointer;
+}

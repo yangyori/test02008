@@ -1,0 +1,52 @@
+CREATE TABLE product(
+	pCode		number	NOT NULL	PRIMARY KEY, -- 제품 고유번호 PK
+	psubject		nvarchar2(50),  -- 제품 제목(이름) 
+	category		nvarchar2(50),  -- 제품 카테고리 
+	subcategory	nvarchar2(50),  -- 제품 서브카테고리  
+	pinfo		nvarchar2(50),  -- 제품 설명 
+	price		number,	       -- 제품 가격	
+	unit		nvarchar2(50),  -- 판매 단위 
+	origin		nvarchar2(50),  -- 원산지 
+	shelfLife		nvarchar2(50),  -- 유통기한
+	img		nvarchar2(50),  -- 대표 이미지
+	created		Date,  -- 작성일자 
+	amount		number, -- 수량 
+	sale		number, -- 할인
+	salesvolume	number  -- 판매량 
+);
+
+--양파
+insert into product values ( 4002 ,'[KF365]양파1.8kg', '채소', '양파대파마늘배추', '믿고 먹을수 있는 상품을 합리적인 가격에,KF365', 3840, '1망', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4008, '친환경 깐 적양파1입', '채소', '양파대파마늘배추', '손질없이 즐기는 아삭한 양파', 1300, '1입', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4006, '양파 3kg', '채소', '양파대파마늘배추', '넉넉하게 누리는 단골 식재료', 5690, '1망', 
+			'국산', sysdate, amount, sale, salesvolume);
+
+
+--배추
+insert into product values ( 4005, '배추 1포기', '채소', '양파대파마늘배추', '친숙하고 활용도 높은 채소(2.5kg이상)',5190, '1통', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4010, '친환경 잎쌈배추 120g', '채소', '양파대파마늘배추', '쌈 싸먹기 좋은 싱싱한 채소(1봉/120g)',2490, '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4011, '친환경 잎채소 쌈배추 1/2통', '채소', '양파대파마늘배추', '고소함이 겹겹히 쌓인 미니배추',3690, '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+
+
+--대파
+insert into product values ( 4003, '깐대파 500g', '채소', '양파대파마늘배추', '만능 양념채소', 2990, '봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4007, '진도 대파1단 1kg', '채소', '양파대파마늘배추', '겨울철 제철 맞은 향긋한 진도 대파', 2690, '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4009, '친환경 손질한 잎몸 대파 200g', '채소', '양파대파마늘배추', '가장 맛있는 잎몸 부분만 따로 손질한 대파(1봉/200g)', 3490, '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+
+--마늘
+insert into product values ( 4001 ,'[KF365]깐마늘200g', '채소', '양파대파마늘배추', '믿고 먹을 수 있는 상품을 합리적인 가격에,KF365',2800 , '봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4004, '깐마늘500g', '채소', '양파대파마늘배추', '껍질을 벗겨 간편한 마늘',6890 , '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( 4012, '친환경 저민마늘50g', '채소', '양파대파마늘배추', '편썰기로 요리에 간편하게 이용하는 저민마늘',3290 , '1팩', 
+			'국산', sysdate, amount, sale, salesvolume);
+
+

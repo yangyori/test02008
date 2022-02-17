@@ -1,0 +1,560 @@
+#wrap {
+    width: 1024px;
+    margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+#foot {
+    float: left;
+    margin-top: 20px;
+    border-top: 1px solid gainsboro;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.clear {
+    clear: both;
+}
+/*헤더바 시작*/
+
+#header{
+    width: 1024px;
+    margin-top: 5px;           
+    float: left;            
+}
+
+#information {
+    float: left;
+}
+
+#logo {
+    text-align: center;
+    
+}
+
+#logo img {
+    width: 100px;
+}
+
+
+#top_menu {
+    position: relative;
+    padding: 3px 0px 0px 3px;
+    font-size: 12px;
+    float: right;
+}
+
+#top_menu li {
+    position: relative;
+    text-align: center;
+    float: left;
+}
+
+.li1 a{
+    color:#5F0080;
+}
+
+.li1{
+    padding: 0px 12px;       
+    width: 50px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+.li2{
+    padding: 0px 12px;       
+    width: 40px;
+    height: 18px;
+    border-right: 1px solid gainsboro
+}
+.li3{
+    padding: 0px 12px;       
+    width: 60px;
+    height: 18px;
+    
+}
+
+.li4{
+    padding: 0px 12px;       
+    width: 100px;
+    height: 18px;
+    border-right: 1px solid gainsboro;
+}
+
+.pd{
+    padding-right:-px ;
+}
+
+
+
+.span01 {
+    display: inline-block;
+    width: 30px;
+    color: #949296;
+    margin-right: 5px;
+    background: #FFFF;
+    border: 1px solid #949296 ;
+    font-size: 9px;
+    border-radius: 30px;
+    text-align: center;
+    
+}
+
+/* 드랍다운 */
+#top_menu ul {
+    display: none;
+}
+
+#top_menu ul li {   
+    padding: 5px;
+    font-size: 12px;
+    width: 100%;
+    height: 14px;
+    text-align: left;
+    float: none;
+}
+
+#top_menu li:hover ul {
+    display: block;
+    border:1px solid rgb(240, 240, 240);
+    background-color: white;
+    margin-top: 3px;
+    width: 100px;
+    float: right;
+}
+/* 드랍다운 종료 */
+
+#main_bar {
+    margin-top: 10px;
+    background-color: white;
+    width: 1024px;
+    float: left;
+}
+
+#main_menu {
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    height: 40px;    
+    float: left;
+}
+#main_left {
+    float: left;            
+}
+
+/*수정된부분*/
+#main_menu>li {
+    position: relative;
+    text-align: center;
+    padding: 10px 0px 10px 0px;
+    width: 132px;            
+    float: left;
+}
+
+
+#main_menu li span {
+    display: block;
+    float: left;
+    margin-top: -1px;
+}
+
+#main_menu ul li:hover {
+    background-color: #F7F7F7;
+}
+
+#main_menu li:hover>a{
+    color: #5F0080;
+}
+
+.mdrpwrap{
+    margin-top: 16px;
+}
+
+/* 드랍다운 */
+.mdropdown {
+    float: left;
+}
+
+.mdropdown .mdropbtn {
+    outline: none;
+    color: black;
+    padding-top: 10px;
+    background-color: inherit;
+    font-family: inherit;
+}
+
+.mdropdown-content {
+    float: left;
+    display: none;
+    position: absolute;
+    width: 400px;   
+}
+
+.tablinks{
+    background-color: white;
+}
+
+.mdropdown-content li{
+    height: 30px;
+    padding: 8px 0px 0px 5px;
+}
+
+.mdropdown-content a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    text-align: left;
+}
+
+
+.mdropdown-content a:hover {
+    background-color: #F7F7F7;
+    color: black;
+}
+
+.mdropdown:hover .mdropdown-content {
+    float: left;
+    display: block;
+    z-index: 200;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    width: 200px;
+    border-left: none;
+    display: none;
+    background-color: #F7F7F7;
+}
+
+.mcategory{
+    width: 140px;
+    border: 1px solid gainsboro;
+    float: left;
+}
+
+.mcontents{    
+    display: none;
+
+}
+
+.mdropdown-content:hover .mcontents{
+    display: block;
+    border: 1px solid gainsboro;
+    border-left: none;
+    float: left;
+    
+    
+}
+
+.mdropdown-content:hover .mcategory{
+    border-right: none;
+}
+
+.active {
+    background-color: #F7F7F7;
+}
+
+.active a{
+    color: #5F0080;
+  }
+
+/* 드랍다운 종료 */
+
+
+
+#main_right {
+    width: 368px;
+    height: 38px;
+    padding-top: 2px;
+    float: left;    
+}
+
+#search {
+    width: 200px;
+    height: 35px;
+    background-color: #F7F7F7;
+    float: left;
+    margin-left: 3px;
+    border-radius: 20px;            
+    text-align: center;
+
+}
+
+#search input {
+    display: block;
+    width: 170px;
+    height: 30px;
+    font-size: 10px;
+    background-color: #F7F7F7;
+    border-radius: 15px;
+    border: 0px;
+    text-align: center;
+    margin-top: 3px;
+    margin-left: 3px;
+    outline: none;
+    float: left;
+}
+
+#search input::placeholder {
+    font-weight: bold;
+}
+
+#search span {            
+    margin-top: 5px;
+    float: left;
+}
+
+.lfc{            
+    width: 40px;
+    margin-top: 6px;
+    padding-left: 15px;
+    float: left;
+    
+    text-align: center;
+}
+
+#bottom {
+    float: left;
+    width: 1024px;
+    margin-top: 100px;
+}
+/*수정된 부분*/
+
+
+
+
+/*헤더바 종료*/
+
+/*이미지 슬라이드 시작*/
+#wrapper {
+    width: 1024px;
+    margin-top: 8px;
+    height: 250px;
+    position: relative;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0px;
+}
+
+#slider-wrap {
+    width: 1024px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slider-wrap ul#slider {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#slider-wrap ul#slider li {
+    float: left;
+    position: relative;
+    width: 1024px;
+    height: 250px;
+}
+
+#slider-wrap ul#slider li>div {
+    position: absolute;
+    top: 20px;
+    left: 35px;
+}
+
+#slider-wrap ul#slider li>div h3 {
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+#slider-wrap ul#slider li>div span {
+    font-family: Neucha, Arial, sans serif;
+    font-size: 21px;
+}
+
+#slider-wrap ul#slider li img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*btns*/
+.btns {
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    top: 50%;
+    margin-top: -25px;
+    line-height: 57px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 100;
+
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+
+.btns:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#next {
+    right: -50px;
+    border-radius: 7px 0px 0px 7px;
+}
+
+#previous {
+    left: -50px;
+    border-radius: 0px 7px 7px 7px;
+}
+
+#counter {
+    top: 30px;
+    right: 35px;
+    width: auto;
+    position: absolute;
+}
+
+#slider-wrap.active #next {
+    right: 0px;
+}
+
+#slider-wrap.active #previous {
+    left: 0px;
+}
+
+
+/*bar*/
+#pagination-wrap {
+    min-width: 20px;
+    margin-top: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15px;
+    position: relative;
+    text-align: center;
+}
+
+#pagination-wrap ul {
+    width: 100%;
+}
+
+#pagination-wrap ul li {
+    margin: 0 4px;
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.5;
+    position: relative;
+    top: 0;
+
+
+}
+
+#pagination-wrap ul li.active {
+    width: 12px;
+    height: 12px;
+    top: 3px;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+}
+
+/*ANIMATION*/
+#slider-wrap ul,
+#pagination-wrap ul li {
+    -webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    -moz-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    -o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    -ms-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+    transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+}
+/*이미지 슬라이드 종료*/
+
+#list {
+    float: left;
+    width: 1055px;
+    margin-top: 50px;
+     
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: bolder;
+    margin-bottom: -150px;
+}
+#item_category{
+    float: left;
+    width: 1024px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.item {
+    float: left;
+    margin: 100px 21px 0px 0px;
+    width: 240px;
+    
+}
+
+.item_img {
+    float: left;
+    
+    width: 240px;
+}
+
+.item_img img{
+    max-width: 100%;
+}
+
+.psubject {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 16px;
+
+}
+
+.price {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.pinfo {
+    text-align: left;
+    font-size: 15px;
+    margin-top: 15px;
+    color: #999999;
+}

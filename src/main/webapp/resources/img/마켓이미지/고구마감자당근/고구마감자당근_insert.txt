@@ -1,0 +1,134 @@
+CREATE TABLE product(
+	pCode		number	NOT NULL	PRIMARY KEY, -- 제품 고유번호 PK
+	psubject		nvarchar2(50),  -- 제품 제목(이름) 
+	category		nvarchar2(50),  -- 제품 카테고리 
+	subcategory	nvarchar2(50),  -- 제품 서브카테고리  
+	pinfo		nvarchar2(50),  -- 제품 설명 
+	price		number,	       -- 제품 가격	
+	unit		nvarchar2(50),  -- 판매 단위 
+	origin		nvarchar2(50),  -- 원산지 
+	shelfLife		nvarchar2(50),  -- 유통기한
+	img		nvarchar2(50),  -- 대표 이미지
+	created		Date,  -- 작성일자 
+	amount		number, -- 수량 
+	sale		number, -- 할인
+	salesvolume	number  -- 판매량 
+);
+
+
+insert into product values ( pCode, '친환경 호박고구마 1kg', '채소', '고구마감자당근', '노란 속살만큼 진한 달콤함', 7490, '1박스', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '[KF365] 감자 1kg', '채소', '고구마감자당근', '믿고 먹을 수 있는 상품을 합리적인 가격에, KF365', 3490, '1박스', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '친환경 당근 500g', '채소', '고구마감자당근', '껍질째 먹을 수 있는 친환경 흙당근(500g 내외)', 2990, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '[KF365] 호박고구마 800g', '채소', '고구마감자당근', '더욱 촉촉하고 달콤한 호박고구마(1봉/800g)',5580, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '한끼 당근 1개', '채소', '고구마감자당근', '딱 하나만 필요할 때 한끼 당근',1300, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '[KF365] 밤고구마 800g', '채소', '고구마감자당근', '포근하고 고소한 고구마(1봉/800g)',4780, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '한끼 감자 300g', '채소', '고구마감자당근', '보관 걱정 없이 소용량 포장으로', 1790, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '제주 흙당근 1kg', '채소', '고구마감자당근', '제주도에서 자란 영양 가득 채소', 3190, '1봉지', 
+			'국산', sysdate, amount, sale, salesvolume);
+insert into product values ( pCode, '친환경 감자 600g', '채소', '고구마감자당근', '어떤 음식을 해도 잘 어울리는 무농약 감자', 2690, '1봉', 
+			'국산', sysdate, amount, sale, salesvolume);
+
+
+--고구마감자당근(1000)
+insert into product values ( 1001, '[KF365] 밤고구마 800g', '채소', '고구마감자당근', '포근하고 고소한 고구마(1봉/800g)',4780, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', ' [KF365] 밤고구마 800g.jpg', sysdate, amount, sale, salesvolume);
+
+insert into product values ( 1002, '[KF365] 호박고구마 800g', '채소', '고구마감자당근', '더욱 촉촉하고 달콤한 호박고구마(1봉/800g)',5580, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '[KF365] 호박고구마 800g.jpg', sysdate, 50, 0.0, 0);
+
+insert into product values ( 1003, '제주 흙당근 1kg', '채소', '고구마감자당근', '제주도에서 자란 영양 가득 채소', 3190, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '제주 흙당근 1kg.jpg',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1004, '친환경 감자 600g', '채소', '고구마감자당근', '어떤 음식을 해도 잘 어울리는 무농약 감자', 2690, '1봉', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '친환경 감자 600g.jpg',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1005, '친환경 당근 500g', '채소', '고구마감자당근', '껍질째 먹을 수 있는 친환경 흙당근(500g 내외)', 2990, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '친환경 당근 500g.jpeg',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1006, '[KF365] 감자 1kg', '채소', '고구마감자당근', '믿고 먹을 수 있는 상품을 합리적인 가격에, KF365', 3490, '1박스', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '[KF365] 감자 1kg.jpg',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1007,'친환경 호박고구마 1kg', '채소', '고구마감자당근', '노란 속살만큼 진한 달콤함', 7490, '1박스', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '친환경 호박고구마 1kg.jpg ',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1008, '한끼 감자 300g', '채소', '고구마감자당근', '보관 걱정 없이 소용량 포장으로', 1790, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '한끼 감자 300g.jpg',  sysdate, 50, 0.0, 0);
+
+insert into product values ( 1009, '한끼 당근 1개', '채소', '고구마감자당근', '딱 하나만 필요할 때 한끼 당근',1300, '1봉지', 
+			'국산', '농산물로 별도의 유통기한은 없으나 가급적 빠르게 드시기 바랍니다.', '한끼 당근 1개.jpg',  sysdate, 50, 0.0, 0);
+
+insert into productExplainImg values (1001, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1001, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1001, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1001, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1001, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1001, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1002, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1002, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1002, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1002, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1002, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1002, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1003, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1003, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1003, '고구마감자당근', '상품설명3.PNG');
+
+insert into productDetailImg values (1003, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1003, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1004, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1004, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1004, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1004, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1004, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1004, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1005, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1005, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1005, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1005, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1005, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1005, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1006, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1006, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1006, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1006, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1006, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1006, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1007, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1007, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1007, '고구마감자당근', '상품설명3.PNG');
+insert into productExplainImg values (1007, '고구마감자당근', '상품설명4.PNG');
+
+insert into productDetailImg values (1007, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1007, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1008, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1008, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1008, '고구마감자당근', '상품설명3.PNG');
+
+insert into productDetailImg values (1008, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1008, '고구마감자당근', '상세정보2.PNG');
+
+insert into productExplainImg values (1009, '고구마감자당근', '상품설명1.jpg');
+insert into productExplainImg values (1009, '고구마감자당근', 상품설명2.PNG');
+insert into productExplainImg values (1009, '고구마감자당근', '상품설명3.PNG');
+
+insert into productDetailImg values (1009, '고구마감자당근', '상세정보1.PNG');
+insert into productDetailImg values (1009, '고구마감자당근', '상세정보2.PNG');

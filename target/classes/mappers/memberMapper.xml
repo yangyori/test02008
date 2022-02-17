@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.market.dao.IMemberDAO">
+	<insert id="create">
+		insert into member (userID, password1, password2, userName, email, phone, addr1, addr2, gender, birth )
+		values (#{userID},#{password1},#{password2}, #{userName}, #{email}, #{phone}, #{addr1}, #{addr2},#{gender},#{birth})
+	</insert>
+	
+	<select id="selectAllUser" resultType="MemberDTO">
+		select * from member where userID=#{userID}
+	</select>
+	
+	<select id = "SearchPassword" resultType = "MemberDTO">
+		select * from member where userID = #{userID} and phone = #{phone}
+	</select>
+	
+	<delete id = "delete">
+		delete from member where password1 = #{password1}
+	</delete>
+	
+	<update id = "userUpdate">
+		update member set password1 = #{password2}, userName = #{userName}, email = #{email}, phone = #{phone}
+		where userID = #{userID}
+	</update>
+	
+	<select id = "IDSearch2" resultType = "MemberDTO">
+		select * from member where userName = #{userName} and phone = #{phone}
+	</select>
+	
+	<select id="idSelect" resultType="MemberDTO">
+		select * from member where userID=#{userID}
+	</select>
+	
+	<select id="SelectLogin" resultType="MemberDTO">
+		select userID, userName from member where userID=#{userID} and password1=#{password1}
+	</select>
+</mapper>
+ 

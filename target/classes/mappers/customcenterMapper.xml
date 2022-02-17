@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.market.dao.ICustomcenterDAO">
+	
+	<!-- 공지사항 시작 -->
+	<select id="listSearch" resultType="com.market.dto.NoticeDTO">
+		<![CDATA[select ntNum, title, manager, created, cnt, contents from
+		(select /*+INDEX_DESC(notice, pk_notice)*/ 
+		rownum rn,ntNum,title,contents,manager,cnt,created
+		from notice where 1=1  ]]>
+	<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and ntNum > 0 ) 
+		where rn > (#{page} -1) * #{perPageNum}]]>
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[ select count(ntNum) from notice where 1=1 ]]>
+		<include refid="search"/>
+		<![CDATA[ and ntNum > 0 ]]>
+	</select>
+	
+	<sql id='search'>
+		<if test="searchType!=null">
+			<if test="searchType == 't'.toString()"> and title like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'c'.toString()"> and contents like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'w'.toString()"> and manager like '%'|| #{keyword}||'%' </if>
+			<if test="searchType == 'tc'.toString()"> and ( title like '%'|| #{keyword}||'%' OR contents like '%'|| #{keyword}||'%') </if>
+		</if>
+	</sql>
+	
+	<select id="selectNotice" resultType="com.market.dto.NoticeDTO">	
+		select * from notice where ntNum = #{ntNum}
+	</select>
+	
+	<!-- 공지사항 내용 삭제하기 -->
+	<delete id="deleteNotice">
+		delete notice where ntNum=#{ntNum}
+	</delete>
+	<!-- 공지사항 종료 -->
+	
+	<!-- 1:1문의 시작 -->
+	<select id="oneinquirylistSearch" resultType="com.market.dto.QuestionDTO">
+		<![CDATA[select qNum, category, title, contents, userID, created, rStatus from
+		(select /*+INDEX_DESC(question, pk_question)*/ 
+		rownum rn,qNum,category,title,contents,userID, created, rStatus
+		from question where 1=1  ]]>
+	<include refid="search" />
+		<![CDATA[ and rownum <= #{page} * #{perPageNum} and qNum > 0 ) 
+		where rn > (#{page} -1) * #{perPageNum}]]>
+	</select>
+	
+	<select id="oneinquirylistSearchCount" resultType="int">
+		<![CDATA[ select count(qNum) from question where 1=1 ]]>
+		<include refid="search"/>
+		<![CDATA[ and qNum > 0 ]]>
+	</select>
+	
+	<select id="count" resultType="Integer">	
+		select count(*) from question
+	</select>
+	
+	<!-- 1:1문의 답글 시작 -->
+	<insert id="qReplyInsert">
+		<![CDATA[insert into qReply (rqNum, qNum, replyText, replyer,replyDate)
+		values (seq_rqNum.nextval,#{qNum},#{replyText},#{replyer},sysdate)]]>
+	</insert>
+	
+	<select id="list" resultType="QReplyDTO">
+		select * from qReply order by rqNum desc
+	</select>
+	<!-- 1:1문의 답글 종료 -->
+	
+	<!-- 1:1문의 종료 -->
+	
+	<!-- 1:1문의 글쓰기 시작 -->
+	<insert id="create">
+		insert into question(qNum,category,title,contents,userID, created, rStatus)
+		values (queNum.nextval,#{category},#{title},#{contents},#{userID},sysdate,0)
+	</insert>
+	
+	<!-- 1:1문의  삭제하기 -->
+	<delete id="deleteQ">
+		delete question where qNum=#{qNum}
+	</delete>
+	<!-- 1:1문의 글쓰기 종료 -->
+</mapper>
